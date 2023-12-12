@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### 任意路径下的文件 ###
+**/mvnw
+**/mvnw.cmd
+**/.mvn
