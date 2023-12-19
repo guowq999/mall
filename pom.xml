@@ -17,5 +17,6 @@
         <module>mall-ware</module>
         <module>mall-coupon</module>
         <module>mall-order</module>
+        <module>mall-common</module>
     </modules>
 </project>
