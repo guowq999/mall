@@ -4,7 +4,7 @@
 <mapper namespace="com.owen.mall.product.dao.CategoryBrandRelationDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.owen.mall.product.entity.CategoryBrandRelationEntity" id="categoryBrandRelationMap">
+    <resultMap type="com.owen.mall.order.entity.CategoryBrandRelationEntity" id="categoryBrandRelationMap">
         <result property="id" column="id"/>
         <result property="brandId" column="brand_id"/>
         <result property="catelogId" column="catelog_id"/>
