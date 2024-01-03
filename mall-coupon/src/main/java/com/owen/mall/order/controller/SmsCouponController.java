@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +25,29 @@ import com.owen.common.utils.R;
  * @author owen
  * @date 2023-12-24 14:56:31
  */
+@RefreshScope
 @RestController
 @RequestMapping("product/smscoupon")
 public class SmsCouponController {
     @Autowired
     private SmsCouponService smsCouponService;
+
+    @Value("${coupon.user.name}")
+    private String name;
+
+    @Value("${coupon.user.age}")
+    private Integer age;
+
+    @RequestMapping("/getCouponList")
+    public R getCouponList() {
+        SmsCouponEntity smsCouponEntity = new SmsCouponEntity();
+        smsCouponEntity.setCouponImg("www.baidu.com");
+        smsCouponEntity.setCouponName("coupon");
+
+        System.out.println(name);
+        System.out.println(age);
+        return R.ok().put("coupon", smsCouponEntity);
+    }
 
     /**
      * 列表

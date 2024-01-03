@@ -3,7 +3,9 @@ package com.owen.mall.member.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.owen.mall.member.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +25,22 @@ import com.owen.common.utils.R;
  * @author owen
  * @date 2023-12-24 15:01:49
  */
+@EnableFeignClients(basePackages = "com.owen.mall.member.feign")
 @RestController
 @RequestMapping("product/umsgrowthchangehistory")
 public class UmsGrowthChangeHistoryController {
     @Autowired
     private UmsGrowthChangeHistoryService umsGrowthChangeHistoryService;
+
+    @Autowired
+    private CouponFeignService couponFeignService;
+
+    @RequestMapping("/get")
+    public R get() {
+        R couponList = couponFeignService.getCouponList();
+
+        return R.ok().put("member", "member").put("coupon", couponList.get("coupon"));
+    }
 
     /**
      * 列表

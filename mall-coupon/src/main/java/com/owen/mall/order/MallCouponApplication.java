@@ -6,13 +6,17 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ScopedProxyMode;
 
 import java.util.List;
 
 
+
 @MapperScan("com.owen.mall.order.dao")
 @SpringBootApplication
+//@NacosPropertySource(dataId = "example", autoRefreshed = true)
 public class MallCouponApplication {
 
     public static void main(String[] args) {
