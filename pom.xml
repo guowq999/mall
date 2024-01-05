@@ -18,5 +18,6 @@
         <module>mall-coupon</module>
         <module>mall-order</module>
         <module>mall-common</module>
+        <module>mall-gateway</module>
     </modules>
 </project>
