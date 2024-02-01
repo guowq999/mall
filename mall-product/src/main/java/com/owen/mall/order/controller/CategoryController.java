@@ -1,6 +1,7 @@
 package com.owen.mall.order.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import jakarta.annotation.Resource;
@@ -33,11 +34,10 @@ public class CategoryController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
-
-        return R.ok().put("page", page);
+    @RequestMapping("/listWithTree")
+    public R listWithTree(){
+        List<CategoryEntity> allEntities = categoryService.listWithTree();
+        return R.ok().put("data", allEntities);
     }
 
 

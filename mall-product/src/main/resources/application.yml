@@ -8,6 +8,12 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+      serverAddr: 127.0.0.1:8848
+      config:
+        namespace: f8a8de77-bba8-41ba-ac33-cd980e721880
+  config:
+    import:
+      - nacos:${spring.application.name}.properties?refresh=true
   application:
     name: mall-product
 
